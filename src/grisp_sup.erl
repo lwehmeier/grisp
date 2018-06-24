@@ -17,6 +17,7 @@ start_link() ->
         supervisor(grisp_board_sup, [
             worker(grisp_spi, [driver(spi, grisp_spi_drv)]),
             worker(grisp_gpio, [driver(gpio, grisp_gpio_drv)]),
+	    worker(grisp_adc, [driver(adc, grisp_adc_drv)]),
             worker(grisp_i2c, [driver(i2c, grisp_i2c_drv)])
         ]),
         supervisor(grisp_devices_sup, grisp_devices_sup, []),
